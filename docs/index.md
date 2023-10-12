@@ -1,6 +1,23 @@
-# SendGrid Mod for Flowpipe
+---
+repository: "https://github.com/turbot/flowpipe-mod-sendgrid"
+---
+
+# Flowpipe SendGrid Mod
 
 Run pipelines and use triggers for SendGrid resources.
+
+## References
+
+[SendGrid](https://sendgrid.com/) is a cloud-based email delivery and marketing platform that provides email sending, delivery, and management services for businesses and developers.
+
+[Flowpipe](https://flowpipe.io) is an open source workflow tool.
+
+[Flowpipe Mods](https://flowpipe.io/docs/reference/mod-resources#mod) are collections of `pipelines` and `triggers`.
+
+## Documentation
+
+- **[Pipelines →](https://hub.flowpipe.io/mods/turbot/sendgrid/pipelines)**
+- **[Triggers →](https://hub.flowpipe.io/mods/turbot/sendgrid/triggers)**
 
 ## Getting started
 
