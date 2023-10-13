@@ -5,22 +5,27 @@ pipeline "send_email" {
   param "api_key" {
     type    = string
     default = var.api_key
+    description = "SendGrid API key used for authentication."
   }
 
   param "to" {
     type    = string
+    description = "The intended recipient's email address."
   }
 
   param "from" {
     type    = string
+    description = "The 'From' email address used to deliver the message. This address should be a verified sender in your Twilio SendGrid account."
   }
 
   param "subject" {
     type    = string
+    description = "The global or 'message level' subject of your email. This may be overridden by subject lines set in personalizations."
   }
 
   param "text" {
     type    = string
+    description = "The body of the email."
   }
 
   step "http" "send_email" {
@@ -48,9 +53,9 @@ pipeline "send_email" {
       ],
       "from" : {
         "email" : "${param.from}"
+        // "name": "Flowpipe Demo"
       }
     })
   }
 
 }
-
