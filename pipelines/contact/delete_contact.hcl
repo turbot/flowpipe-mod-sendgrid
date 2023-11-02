@@ -27,6 +27,6 @@ pipeline "delete_contact" {
   }
 
   output "response_body" {
-    value = step.http.get_contact_by_id.response_body
+    value = step.http.delete_contact.response_body
   }
 }
