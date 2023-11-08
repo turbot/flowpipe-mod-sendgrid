@@ -1,4 +1,3 @@
-// usage: flowpipe pipeline run send_email --pipeline-arg from="pipes@system.turbot.com" --pipeline-arg to="venu+test@turbot.com" --pipeline-arg subject="Flowpipe Notification Email" --pipeline-arg text="Hello World! This is an email from flowpipe pipeline."
 pipeline "send_email" {
   title       = "Send Mail"
   description = "Send an email using SendGrid."
@@ -6,7 +5,7 @@ pipeline "send_email" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = locals.api_key_param_description
+    description = local.api_key_param_description
   }
 
   param "to" {

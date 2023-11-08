@@ -1,4 +1,3 @@
-// usage: flowpipe pipeline run create_or_update_contact --pipeline-arg email="user@example.com" --pipeline-arg "postal_code=508001"
 pipeline "create_or_update_contact" {
   title       = "Create or Update a Contact"
   description = "Create an email in contact."

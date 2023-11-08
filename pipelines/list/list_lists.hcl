@@ -1,4 +1,3 @@
-// usage: flowpipe pipeline run list_lists --execution-mode=synchronous
 pipeline "list_lists" {
   title       = "Get All Lists"
   description = "List all the lists."
@@ -6,7 +5,7 @@ pipeline "list_lists" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = locals.api_key_param_description
+    description = local.api_key_param_description
   }
 
   step "http" "list_lists" {

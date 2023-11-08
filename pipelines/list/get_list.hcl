@@ -1,4 +1,3 @@
-// usage: flowpipe pipeline run get_list --pipeline-arg "id=504c6e04-f2e9-1234-a456-a4dde6574a42" --execution-mode=synchronous
 pipeline "get_list" {
   title       = "Get a List by ID"
   description = "Get contact details by ID."
@@ -6,7 +5,7 @@ pipeline "get_list" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = locals.api_key_param_description
+    description = local.api_key_param_description
   }
 
   param "id" {

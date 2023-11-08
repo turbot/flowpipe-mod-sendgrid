@@ -1,4 +1,3 @@
-// usage: flowpipe pipeline run list_contacts --execution-mode=synchronous --pipeline-arg "filter_contact_by_email=user@example.org"
 pipeline "get_contact" {
   title       = "Get a Contact by ID"
   description = "Get contact details by ID."
@@ -6,7 +5,7 @@ pipeline "get_contact" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = locals.api_key_param_description
+    description = local.api_key_param_description
   }
 
   param "id" {
