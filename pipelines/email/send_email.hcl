@@ -6,7 +6,7 @@ pipeline "send_email" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = "SendGrid API key used for authentication."
+    description = locals.api_key_param_description
   }
 
   param "to" {

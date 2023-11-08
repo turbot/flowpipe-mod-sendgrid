@@ -1,17 +1,17 @@
 // usage: flowpipe pipeline run update_list --pipeline-arg "name=my new list name" --pipeline-arg "id=8b903b6d-8f44-1234-d456-a7849bd7f967" --execution-mode=synchronous
 pipeline "update_list" {
   title       = "Update List"
-  description = "Create an email in contact."
+  description = "Updates the name of a list."
 
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = "SendGrid API key used for authentication."
+    description = locals.api_key_param_description
   }
 
   param "id" {
     type        = string
-    description = "Your name for your list."
+    description = "The ID of the Event Webhook you want to update."
   }
 
   param "name" {
@@ -20,7 +20,7 @@ pipeline "update_list" {
   }
 
   step "http" "update_list" {
-    title  = "Create contact"
+    title  = "Update list"
     method = "patch"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 

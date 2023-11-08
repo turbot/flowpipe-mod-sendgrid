@@ -6,7 +6,7 @@ pipeline "get_contact" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = "SendGrid API key used for authentication."
+    description = locals.api_key_param_description
   }
 
   param "id" {

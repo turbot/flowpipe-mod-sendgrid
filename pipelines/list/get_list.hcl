@@ -6,12 +6,12 @@ pipeline "get_list" {
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = "SendGrid API key used for authentication."
+    description = locals.api_key_param_description
   }
 
   param "id" {
     type        = string
-    description = "The ID of a list."
+    description = "The ID of the Event Webhook you want to retrieve."
   }
 
   step "http" "get_list" {

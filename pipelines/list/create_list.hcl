@@ -1,12 +1,12 @@
 // usage: flowpipe pipeline run  create_list --pipeline-arg "name=testlist" --execution-mode=synchronous
 pipeline "create_list" {
-  title       = "Create list"
+  title       = "Create a List"
   description = "Create a list."
 
   param "api_key" {
     type        = string
     default     = var.api_key
-    description = "SendGrid API key used for authentication."
+    description = locals.api_key_param_description
   }
 
   param "name" {
