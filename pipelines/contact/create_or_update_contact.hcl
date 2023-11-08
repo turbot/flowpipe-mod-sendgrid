@@ -1,6 +1,6 @@
 pipeline "create_or_update_contact" {
   title       = "Create or Update a Contact"
-  description = "Create an email in contact."
+  description = "Create or Update a contact."
 
   param "api_key" {
     type        = string
@@ -50,7 +50,7 @@ pipeline "create_or_update_contact" {
   }
 
   step "http" "create_or_update_contact" {
-    title  = "Create contact"
+    title  = "Create or Update contact"
     method = "put"
     url    = "https://api.sendgrid.com/v3/marketing/contacts"
 
