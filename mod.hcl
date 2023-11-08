@@ -1,7 +1,7 @@
 mod "sendgrid" {
   title         = "SendGrid"
   description   = "Run pipelines and triggers that interact with SendGrid."
-  color         = "#3B5998"
+  color         = "#1A82E2"
   documentation = file("./docs/index.md")
   icon          = "/images/flowpipe/mods/turbot/sendgrid.svg"
   categories    = ["sendgrid", "library"]
