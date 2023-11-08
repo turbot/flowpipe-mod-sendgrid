@@ -87,3 +87,9 @@ Want to help but not sure where to start? Pick up one of the `help wanted` issue
 
 - [Flowpipe](https://github.com/turbot/flowpipe/labels/help%20wanted)
 - [SendGrid Mod](https://github.com/turbot/flowpipe-mod-sendgrid/labels/help%20wanted)
+
+## License
+
+This mod is licensed under the [Apache License 2.0](https://github.com/turbot/flowpipe-mod-sendgrid/blob/main/LICENSE).
+
+Flowpipe is licensed under the [AGPLv3](https://github.com/turbot/flowpipe/blob/main/LICENSE).
