@@ -1,3 +1,7 @@
+---
+repository: "https://github.com/turbot/flowpipe-mod-sendgrid"
+---
+
 # SendGrid Mod for Flowpipe
 
 A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
@@ -6,8 +10,6 @@ A collection of [Flowpipe](https://flowpipe.io) pipelines that can be used to:
 - List Contacts
 - Send Emails
 - And more!
-
-<!-- ![image](https://github.com/turbot/flowpipe-mod-sendgrid/blob/main/docs/images/flowpipe_test_run.png?raw=true) -->
 
 ## Documentation
 
