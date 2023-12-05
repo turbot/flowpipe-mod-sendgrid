@@ -1,11 +1,11 @@
-pipeline "send_email" {
-  title       = "Send Mail"
-  description = "Send an email using SendGrid."
+pipeline "mail_send" {
+  title       = "Mail Send"
+  description = "Send email over SendGrid."
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "to" {
@@ -20,16 +20,15 @@ pipeline "send_email" {
 
   param "subject" {
     type        = string
-    description = "The global or 'message level' subject of your email. This may be overridden by subject lines set in personalizations."
+    description = "The global or 'message level' subject of your email."
   }
 
-  param "text" {
+  param "content" {
     type        = string
     description = "The body of the email."
   }
 
-  step "http" "send_email" {
-    title  = "Send an email"
+  step "http" "mail_send" {
     method = "post"
     url    = "https://api.sendgrid.com/v3/mail/send"
 
@@ -48,16 +47,12 @@ pipeline "send_email" {
       "content" : [
         {
           "type" : "text/plain",
-          "value" : "${param.text}"
+          "value" : "${param.content}"
         }
       ],
       "from" : {
         "email" : "${param.from}"
       }
     })
-  }
-
-  output "response_body" {
-    value = step.http.send_email.response_body
   }
 }

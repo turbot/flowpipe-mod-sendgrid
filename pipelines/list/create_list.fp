@@ -1,11 +1,11 @@
 pipeline "create_list" {
-  title       = "Create a List"
-  description = "Create a list."
+  title       = "Create List"
+  description = "Creates a new contacts list."
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
   param "name" {
@@ -14,7 +14,6 @@ pipeline "create_list" {
   }
 
   step "http" "create_list" {
-    title  = "Create list"
     method = "post"
     url    = "https://api.sendgrid.com/v3/marketing/lists"
 
@@ -28,7 +27,8 @@ pipeline "create_list" {
     })
   }
 
-  output "response_body" {
-    value = step.http.create_list.response_body
+  output "list" {
+    description = "The newly created list."
+    value       = step.http.create_list.response_body
   }
 }

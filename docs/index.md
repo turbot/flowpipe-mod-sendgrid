@@ -43,11 +43,11 @@ cp flowpipe.pvars.example flowpipe.pvars
 vi flowpipe.pvars
 ```
 
-It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.pvars` file.
+It's recommended to configure credentials through [input variables](https://flowpipe.io/docs/using-flowpipe/mod-variables) by setting them in the `flowpipe.fpvars` file.
 
-**Note:** Credentials can also be passed in each pipeline run with `--pipeline-arg api_key=YourAPIKey`.
+**Note:** Credentials can also be passed in each pipeline run with `--arg api_key=YourAPIKey`.
 
-Additional input variables may be defined in the mod's `variables.hcl` file that can be configured to better match your environment and requirements.
+Additional input variables may be defined in the mod's `variables.fp` file that can be configured to better match your environment and requirements.
 
 Variables with defaults set do not need to be explicitly set, but it may be helpful to override them.
 
@@ -56,13 +56,13 @@ Variables with defaults set do not need to be explicitly set, but it may be help
 Start your server to get started:
 
 ```sh
-flowpipe service start
+flowpipe server
 ```
 
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run send_email
+flowpipe pipeline run mail_send
 ```
 
 ## Passing pipeline arguments
@@ -70,10 +70,10 @@ flowpipe pipeline run send_email
 To pass values into pipeline [parameters](https://flowpipe.io/docs/using-flowpipe/pipeline-parameters), use the following syntax:
 
 ```sh
-flowpipe pipeline run get_contact --pipeline-arg id=ZGkrHSypTsudrGkmdpJJ
+flowpipe pipeline run get_contact_by_id --arg contact_id=ZGkrHSypTsudrGkmdpJJ
 ```
 
-Multiple pipeline args can be passed in with separate `--pipeline-arg` flags.
+Multiple pipeline args can be passed in with separate `--arg` flags.
 
 For more information on passing arguments, please see [Pipeline Args](https://flowpipe.io/docs/using-flowpipe/pipeline-arguments).
 

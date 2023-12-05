@@ -4,11 +4,11 @@ pipeline "update_list" {
 
   param "api_key" {
     type        = string
-    default     = var.api_key
     description = local.api_key_param_description
+    default     = var.api_key
   }
 
-  param "id" {
+  param "list_id" {
     type        = string
     description = "The ID of the Event Webhook you want to update."
   }
@@ -19,7 +19,6 @@ pipeline "update_list" {
   }
 
   step "http" "update_list" {
-    title  = "Update list"
     method = "patch"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 
@@ -33,7 +32,8 @@ pipeline "update_list" {
     })
   }
 
-  output "response_body" {
-    value = step.http.update_list.response_body
+  output "list" {
+    description = "The updated list."
+    value       = step.http.update_list.response_body
   }
 }
