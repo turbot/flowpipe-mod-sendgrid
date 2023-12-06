@@ -1,4 +1,5 @@
-variable "api_key" {
+variable "default_cred" {
   type        = string
-  description = "The SendGrid access API key to authenticate to the SendGrid APIs."
+  description = "Name for the default credentials."
+  default     = "default"
 }

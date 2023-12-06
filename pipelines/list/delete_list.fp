@@ -2,10 +2,10 @@ pipeline "delete_list" {
   title       = "Delete List"
   description = "Allows you to delete a specific list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   param "list_id" {
@@ -19,7 +19,7 @@ pipeline "delete_list" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
   }
 }

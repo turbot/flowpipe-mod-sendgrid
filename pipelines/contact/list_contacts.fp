@@ -2,10 +2,10 @@ pipeline "list_contacts" {
   title       = "List contacts"
   description = "Returns up to 50 of the most recent contacts uploaded or attached to a list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   step "http" "list_contacts" {
@@ -14,7 +14,7 @@ pipeline "list_contacts" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
   }
 

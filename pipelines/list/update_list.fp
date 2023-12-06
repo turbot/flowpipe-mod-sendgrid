@@ -2,10 +2,10 @@ pipeline "update_list" {
   title       = "Update List"
   description = "Updates the name of a list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   param "list_id" {
@@ -24,7 +24,7 @@ pipeline "update_list" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({

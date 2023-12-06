@@ -12,5 +12,5 @@ locals {
 
 # Common descriptions
 locals {
-  api_key_param_description = "SendGrid API key used for authentication."
+  cred_param_description = "Name for credentials to use. If not provided, the default credentials will be used."
 }

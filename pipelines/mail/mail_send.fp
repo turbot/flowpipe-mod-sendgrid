@@ -2,10 +2,10 @@ pipeline "mail_send" {
   title       = "Mail Send"
   description = "Send email over SendGrid."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   param "to" {
@@ -34,7 +34,7 @@ pipeline "mail_send" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({

@@ -2,10 +2,10 @@ pipeline "delete_contacts" {
   title       = "Delete Contacts"
   description = "Can be used to delete one or more contacts."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   param "ids" {
@@ -19,7 +19,7 @@ pipeline "delete_contacts" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
   }
 }

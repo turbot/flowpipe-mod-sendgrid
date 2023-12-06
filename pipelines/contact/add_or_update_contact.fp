@@ -2,10 +2,10 @@ pipeline "add_or_update_contact" {
   title       = "Add or Update Contact"
   description = "Allows the upsert (insert or update) of contacts."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   param "email" {
@@ -55,7 +55,7 @@ pipeline "add_or_update_contact" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({

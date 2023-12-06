@@ -2,10 +2,10 @@ pipeline "list_contact_lists" {
   title       = "List Contact Lists"
   description = "Returns an array of all of your contact lists."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    description = local.api_key_param_description
-    default     = var.api_key
+    description = local.cred_param_description
+    default     = var.default_cred
   }
 
   step "http" "list_contact_lists" {
@@ -14,7 +14,7 @@ pipeline "list_contact_lists" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     loop {
