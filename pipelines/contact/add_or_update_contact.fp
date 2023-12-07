@@ -5,7 +5,7 @@ pipeline "add_or_update_contact" {
   param "cred" {
     type        = string
     description = local.cred_param_description
-    default     = var.default_cred
+    default     = "default"
   }
 
   param "email" {

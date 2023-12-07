@@ -5,7 +5,7 @@ pipeline "delete_list" {
   param "cred" {
     type        = string
     description = local.cred_param_description
-    default     = var.default_cred
+    default     = "default"
   }
 
   param "list_id" {
