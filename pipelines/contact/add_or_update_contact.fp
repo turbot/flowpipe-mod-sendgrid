@@ -2,6 +2,10 @@ pipeline "add_or_update_contact" {
   title       = "Add or Update Contact"
   description = "Allows the upsert (insert or update) of contacts."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description

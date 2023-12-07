@@ -2,6 +2,10 @@ pipeline "mail_send" {
   title       = "Mail Send"
   description = "Send email over SendGrid."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description

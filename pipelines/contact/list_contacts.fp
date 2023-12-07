@@ -2,6 +2,10 @@ pipeline "list_contacts" {
   title       = "List contacts"
   description = "Returns up to 50 of the most recent contacts uploaded or attached to a list."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description

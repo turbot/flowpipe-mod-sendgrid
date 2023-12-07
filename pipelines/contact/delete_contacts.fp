@@ -2,6 +2,10 @@ pipeline "delete_contacts" {
   title       = "Delete Contacts"
   description = "Can be used to delete one or more contacts."
 
+  tags = {
+    type = "featured"
+  }
+
   param "cred" {
     type        = string
     description = local.cred_param_description
