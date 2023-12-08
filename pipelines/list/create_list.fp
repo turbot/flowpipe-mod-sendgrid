@@ -1,11 +1,11 @@
 pipeline "create_list" {
-  title       = "Create a List"
-  description = "Create a list."
+  title       = "Create List"
+  description = "Creates a new contacts list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    default     = var.api_key
-    description = local.api_key_param_description
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "name" {
@@ -14,13 +14,12 @@ pipeline "create_list" {
   }
 
   step "http" "create_list" {
-    title  = "Create list"
     method = "post"
     url    = "https://api.sendgrid.com/v3/marketing/lists"
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({
@@ -28,7 +27,8 @@ pipeline "create_list" {
     })
   }
 
-  output "response_body" {
-    value = step.http.create_list.response_body
+  output "list" {
+    description = "The newly created list."
+    value       = step.http.create_list.response_body
   }
 }

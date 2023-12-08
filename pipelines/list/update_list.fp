@@ -2,13 +2,13 @@ pipeline "update_list" {
   title       = "Update List"
   description = "Updates the name of a list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    default     = var.api_key
-    description = local.api_key_param_description
+    description = local.cred_param_description
+    default     = "default"
   }
 
-  param "id" {
+  param "list_id" {
     type        = string
     description = "The ID of the Event Webhook you want to update."
   }
@@ -19,13 +19,12 @@ pipeline "update_list" {
   }
 
   step "http" "update_list" {
-    title  = "Update list"
     method = "patch"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({
@@ -33,7 +32,8 @@ pipeline "update_list" {
     })
   }
 
-  output "response_body" {
-    value = step.http.update_list.response_body
+  output "list" {
+    description = "The updated list."
+    value       = step.http.update_list.response_body
   }
 }

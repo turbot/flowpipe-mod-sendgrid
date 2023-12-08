@@ -1,14 +1,14 @@
 mod "sendgrid" {
   title         = "SendGrid"
-  description   = "Run pipelines and triggers that interact with SendGrid."
+  description   = "Run pipelines to supercharge your SendGrid workflows using Flowpipe."
   color         = "#1A82E2"
   documentation = file("./docs/index.md")
   icon          = "/images/flowpipe/mods/turbot/sendgrid.svg"
-  categories    = ["sendgrid", "library"]
+  categories    = ["messaging"]
 
   opengraph {
-    title       = "SendGrid"
-    description = "Run pipelines and triggers that interact with SendGrid."
+    title       = "SendGrid Mod for Flowpipe"
+    description = "Run pipelines to supercharge your SendGrid workflows using Flowpipe."
     image       = "/images/flowpipe/mods/turbot/sendgrid-social-graphic.png"
   }
 }

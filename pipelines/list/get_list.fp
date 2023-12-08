@@ -1,31 +1,30 @@
 pipeline "get_list" {
-  title       = "Get a List by ID"
-  description = "Get contact details by ID."
+  title       = "Get List"
+  description = "Returns data about a specific list."
 
-  param "api_key" {
+  param "cred" {
     type        = string
-    default     = var.api_key
-    description = local.api_key_param_description
+    description = local.cred_param_description
+    default     = "default"
   }
 
-  param "id" {
+  param "list_id" {
     type        = string
-    description = "The ID of the Event Webhook you want to retrieve."
+    description = "The ID of the list you want to retrieve."
   }
 
   step "http" "get_list" {
-    title  = "Get List"
     method = "get"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
   }
 
-  output "response_body" {
-    value = step.http.get_list.response_body
+  output "list" {
+    description = "The list details."
+    value       = step.http.get_list.response_body
   }
-
 }

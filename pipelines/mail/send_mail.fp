@@ -1,11 +1,15 @@
-pipeline "send_email" {
+pipeline "send_mail" {
   title       = "Send Mail"
-  description = "Send an email using SendGrid."
+  description = "Send email over SendGrid."
 
-  param "api_key" {
+  tags = {
+    type = "featured"
+  }
+
+  param "cred" {
     type        = string
-    default     = var.api_key
-    description = local.api_key_param_description
+    description = local.cred_param_description
+    default     = "default"
   }
 
   param "to" {
@@ -20,22 +24,21 @@ pipeline "send_email" {
 
   param "subject" {
     type        = string
-    description = "The global or 'message level' subject of your email. This may be overridden by subject lines set in personalizations."
+    description = "The global or 'message level' subject of your email."
   }
 
-  param "text" {
+  param "content" {
     type        = string
     description = "The body of the email."
   }
 
-  step "http" "send_email" {
-    title  = "Send an email"
+  step "http" "send_mail" {
     method = "post"
     url    = "https://api.sendgrid.com/v3/mail/send"
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${param.api_key}"
+      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
     }
 
     request_body = jsonencode({
@@ -48,16 +51,12 @@ pipeline "send_email" {
       "content" : [
         {
           "type" : "text/plain",
-          "value" : "${param.text}"
+          "value" : "${param.content}"
         }
       ],
       "from" : {
         "email" : "${param.from}"
       }
     })
-  }
-
-  output "response_body" {
-    value = step.http.send_email.response_body
   }
 }
