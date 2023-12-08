@@ -62,7 +62,7 @@ flowpipe server
 Run a pipeline:
 
 ```sh
-flowpipe pipeline run mail_send
+flowpipe pipeline run send_mail
 ```
 
 ## Passing pipeline arguments

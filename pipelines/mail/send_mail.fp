@@ -1,5 +1,5 @@
-pipeline "mail_send" {
-  title       = "Mail Send"
+pipeline "send_mail" {
+  title       = "Send Mail"
   description = "Send email over SendGrid."
 
   tags = {
@@ -32,7 +32,7 @@ pipeline "mail_send" {
     description = "The body of the email."
   }
 
-  step "http" "mail_send" {
+  step "http" "send_mail" {
     method = "post"
     url    = "https://api.sendgrid.com/v3/mail/send"
 
