@@ -1,5 +1,5 @@
 pipeline "list_contacts" {
-  title       = "List contacts"
+  title       = "List Contacts"
   description = "Returns up to 50 of the most recent contacts uploaded or attached to a list."
 
   tags = {
@@ -26,5 +26,4 @@ pipeline "list_contacts" {
     description = "List of contacts."
     value       = step.http.list_contacts.response_body.result
   }
-
 }

@@ -24,9 +24,8 @@ pipeline "list_contact_lists" {
 
   }
 
-  output "lists" {
+  output "contact_lists" {
     description = "Array of all contact lists."
-    value       = step.http.list_contact_lists.response_body
+    value       = flatten([for entry in step.http.list_contact_lists : entry.response_body.result])
   }
-
 }
