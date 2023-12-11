@@ -1,5 +1,5 @@
-pipeline "update_list" {
-  title       = "Update List"
+pipeline "update_contact_list" {
+  title       = "Update Contact List"
   description = "Updates the name of a list."
 
   param "cred" {
@@ -18,7 +18,7 @@ pipeline "update_list" {
     description = "The updated name for your list."
   }
 
-  step "http" "update_list" {
+  step "http" "update_contact_list" {
     method = "patch"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 
@@ -32,8 +32,8 @@ pipeline "update_list" {
     })
   }
 
-  output "list" {
-    description = "The updated list."
-    value       = step.http.update_list.response_body
+  output "contact_list" {
+    description = "The updated contact list."
+    value       = step.http.update_contact_list.response_body
   }
 }

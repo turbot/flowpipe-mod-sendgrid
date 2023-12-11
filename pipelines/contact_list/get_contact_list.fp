@@ -1,5 +1,5 @@
-pipeline "get_list" {
-  title       = "Get List"
+pipeline "get_contact_list" {
+  title       = "Get Contact List"
   description = "Returns data about a specific list."
 
   param "cred" {
@@ -13,7 +13,7 @@ pipeline "get_list" {
     description = "The ID of the list you want to retrieve."
   }
 
-  step "http" "get_list" {
+  step "http" "get_contact_list" {
     method = "get"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.id}"
 
@@ -23,8 +23,8 @@ pipeline "get_list" {
     }
   }
 
-  output "list" {
-    description = "The list details."
-    value       = step.http.get_list.response_body
+  output "contact_list" {
+    description = "The contact list details."
+    value       = step.http.get_contact_list.response_body
   }
 }
