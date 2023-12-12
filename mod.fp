@@ -2,7 +2,7 @@ mod "sendgrid" {
   title         = "SendGrid"
   description   = "Run pipelines to supercharge your SendGrid workflows using Flowpipe."
   color         = "#1A82E2"
-  documentation = file("./docs/index.md")
+  documentation = file("./README.md")
   icon          = "/images/mods/turbot/sendgrid.svg"
   categories    = ["messaging"]
 
