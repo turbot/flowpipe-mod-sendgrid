@@ -8,10 +8,6 @@ SendGrid pipeline library for [Flowpipe](https://flowpipe.io), enabling seamless
 
 ## Getting started
 
-### Requirements
-
-Docker daemon must be installed and running. Please see [Install Docker Engine](https://docs.docker.com/engine/install/) for more information.
-
 ### Installation
 
 Download and install Flowpipe (https://flowpipe.io/downloads). Or use Brew:
@@ -50,6 +46,8 @@ For more information on credentials in Flowpipe, please see [Managing Credential
 
 ### Usage
 
+Start your server to get started:
+
 List pipelines:
 
 ```sh
@@ -75,10 +73,6 @@ flowpipe pipeline run get_contact_by_id --arg contact_id=ZGkrHSypTsudrGkmdpJJ --
 ```
 
 For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).
-
-### Configuration
-
-No additional configuration is required.
 
 ## Open Source & Contributing
 
