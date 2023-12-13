@@ -1,5 +1,5 @@
-pipeline "create_list" {
-  title       = "Create List"
+pipeline "create_contact_list" {
+  title       = "Create Contact List"
   description = "Creates a new contacts list."
 
   param "cred" {
@@ -13,7 +13,7 @@ pipeline "create_list" {
     description = "Your name for your list."
   }
 
-  step "http" "create_list" {
+  step "http" "create_contact_list" {
     method = "post"
     url    = "https://api.sendgrid.com/v3/marketing/lists"
 
@@ -27,8 +27,8 @@ pipeline "create_list" {
     })
   }
 
-  output "list" {
-    description = "The newly created list."
-    value       = step.http.create_list.response_body
+  output "contact_list" {
+    description = "The newly created contact list."
+    value       = step.http.create_contact_list.response_body
   }
 }

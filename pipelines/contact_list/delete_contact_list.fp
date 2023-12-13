@@ -1,5 +1,5 @@
-pipeline "delete_list" {
-  title       = "Delete List"
+pipeline "delete_contact_list" {
+  title       = "Delete Contact List"
   description = "Allows you to delete a specific list."
 
   param "cred" {
@@ -13,7 +13,7 @@ pipeline "delete_list" {
     description = "The ID of the list you want to delete."
   }
 
-  step "http" "delete_list" {
+  step "http" "delete_contact_list" {
     method = "delete"
     url    = "https://api.sendgrid.com/v3/marketing/lists/${param.list_id}"
 
