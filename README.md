@@ -28,25 +28,25 @@ git clone https://github.com/turbot/flowpipe-mod-sendgrid.git
 cd flowpipe-mod-sendgrid
 ```
 
-### Credentials
+### Connections
 
 By default, the following environment variables will be used for authentication:
 
 - `SENDGRID_API_KEY`
 
-You can also create `credential` resources in configuration files:
+You can also create `connection` resources in configuration files:
 
 ```sh
 vi ~/.flowpipe/config/sendgrid.fpc
 ```
 
 ```hcl
-credential "sendgrid" "sendgrid_cred" {
+connection "sendgrid" "sendgrid_cred" {
   api_key = "SG.R7...."
 }
 ```
 
-For more information on credentials in Flowpipe, please see [Managing Credentials](https://flowpipe.io/docs/run/credentials).
+For more information on connections in Flowpipe, please see [Managing Connections](https://flowpipe.io/docs/run/connections).
 
 ### Usage
 
@@ -68,10 +68,10 @@ You can pass in pipeline arguments as well:
 flowpipe pipeline run get_contact_by_id --arg contact_id=ZGkrHSypTsudrGkmdpJJ
 ```
 
-To use a specific `credential`, specify the `cred` pipeline argument:
+To use a specific `connection`, specify the `conn` pipeline argument:
 
 ```sh
-flowpipe pipeline run get_contact_by_id --arg contact_id=ZGkrHSypTsudrGkmdpJJ --arg cred=sendgrid_cred
+flowpipe pipeline run get_contact_by_id --arg contact_id=ZGkrHSypTsudrGkmdpJJ --arg conn=sendgrid_cred
 ```
 
 For more examples on how you can run pipelines, please see [Run Pipelines](https://flowpipe.io/docs/run/pipelines).

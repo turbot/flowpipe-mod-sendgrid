@@ -6,10 +6,10 @@ pipeline "list_contacts" {
     type = "featured"
   }
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.sendgrid
+    description = local.conn_param_description
+    default     = connection.sendgrid.default
   }
 
   step "http" "list_contacts" {
@@ -18,7 +18,7 @@ pipeline "list_contacts" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
+      Authorization = "Bearer ${param.conn.api_key}"
     }
   }
 
