@@ -3,7 +3,7 @@ pipeline "list_contacts" {
   description = "Returns up to 50 of the most recent contacts uploaded or attached to a list."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
   param "conn" {

@@ -3,7 +3,7 @@ pipeline "delete_contacts" {
   description = "Can be used to delete one or more contacts."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
   param "conn" {

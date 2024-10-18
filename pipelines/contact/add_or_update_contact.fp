@@ -3,7 +3,7 @@ pipeline "add_or_update_contact" {
   description = "Allows the upsert (insert or update) of contacts."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
   param "conn" {

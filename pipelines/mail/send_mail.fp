@@ -3,7 +3,7 @@ pipeline "send_mail" {
   description = "Send email over SendGrid."
 
   tags = {
-    type = "featured"
+    recommended = "true"
   }
 
   param "conn" {
