@@ -12,5 +12,5 @@ locals {
 
 # Common descriptions
 locals {
-  cred_param_description = "Name for credentials to use. If not provided, the default credentials will be used."
+  conn_param_description = "Name of SendGrid connection to use. If not provided, the default SendGrid connection will be used."
 }

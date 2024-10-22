@@ -2,10 +2,10 @@ pipeline "get_contact_by_id" {
   title       = "Get Contact by ID"
   description = "Returns the full details and all fields for the specified contact."
 
-  param "cred" {
-    type        = string
-    description = local.cred_param_description
-    default     = "default"
+  param "conn" {
+    type        = connection.sendgrid
+    description = local.conn_param_description
+    default     = connection.sendgrid.default
   }
 
   param "contact_id" {
@@ -19,7 +19,7 @@ pipeline "get_contact_by_id" {
 
     request_headers = {
       Content-Type  = "application/json"
-      Authorization = "Bearer ${credential.sendgrid[param.cred].api_key}"
+      Authorization = "Bearer ${param.conn.api_key}"
     }
   }
 
